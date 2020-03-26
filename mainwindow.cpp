@@ -18,7 +18,11 @@ void MainWindow::on_select_button_clicked()
 {
     string filepath = getFilePath();
     if (filepath != ERROR)
+    {
         ui->filepath_lineedit->setText(QString::fromStdString(filepath));
+        vector<string> vctrstring = readCSV(filepath);
+        getStringMatrix(vctrstring);
+    }
     else
         errorMessage();
 

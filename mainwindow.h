@@ -23,7 +23,7 @@ public:
 private slots:
     void on_select_button_clicked();
 
-    string getFilePath();
+    std::string getFilePath();
 
     void errorMessage();
 

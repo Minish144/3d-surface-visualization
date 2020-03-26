@@ -23,5 +23,6 @@ vector<string> readCSV(string filepath);
 
 vector<string> splitString(string str, string sep);
 
+vector<vector<string>> getStringMatrix(vector<string> array);
 
 #endif // LOGIC_H

@@ -49,3 +49,15 @@ vector<string> splitString(string str, string sep)
     arr.push_back(str.substr(prev));
     return arr;
 }
+
+vector<vector<string>> getStringMatrix(vector<string> array)
+{
+    vector<vector<string>> tempMatrix;
+    vector<string> tempArray;
+    for (size_t i = 0; i < array.size(); i++)
+    {
+        tempArray = splitString(array[i], ",");
+        tempMatrix.push_back(tempArray);
+    }
+    return tempMatrix;
+}
