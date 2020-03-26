@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "logic.h"
+#include <QDialog>
+#include <QDebug>
+#include <QMessageBox>
+#define ERROR "ERROR"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,6 +19,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_select_button_clicked();
+
+    string getFilePath();
+
+    void errorMessage();
 
 private:
     Ui::MainWindow *ui;

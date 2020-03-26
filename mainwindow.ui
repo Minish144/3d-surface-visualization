@@ -230,33 +230,117 @@
      <string>●</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="select_button">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>590</x>
       <y>10</y>
-      <width>101</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>ЗАГРУЗИТЬ</string>
+     <string>Select file</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="filepath_lineedit">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>661</width>
+      <width>571</width>
       <height>31</height>
      </rect>
     </property>
     <property name="inputMask">
-     <string>123</string>
+     <string/>
     </property>
     <property name="text">
-     <string>123</string>
+     <string/>
+    </property>
+    <property name="placeholderText">
+     <string> File path</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="step_lineedit">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>10</y>
+      <width>113</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string> Step</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="visualize_button">
+    <property name="geometry">
+     <rect>
+      <x>920</x>
+      <y>10</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Visualize</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>10</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>[               :              ]</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range0_lineedit">
+    <property name="geometry">
+     <rect>
+      <x>820</x>
+      <y>10</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Range</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="range1_lineedit">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>10</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Range</string>
     </property>
    </widget>
   </widget>
