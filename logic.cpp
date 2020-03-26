@@ -24,6 +24,9 @@ vector<string> readCSV(string filepath)
     int count = 0;
     for (int i = 0; getline(file, tmp); i++)
     {
+        qDebug() << tmp[tmp.length()-1];
+        if (tmp[tmp.length()-1] == '\r')
+            tmp = tmp.substr(0, tmp.length()-3);
         sArray.push_back(tmp);
         count++;
     }

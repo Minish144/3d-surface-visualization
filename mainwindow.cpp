@@ -25,7 +25,6 @@ void MainWindow::on_select_button_clicked()
     }
     else
         errorMessage();
-
 }
 
 string MainWindow::getFilePath()
