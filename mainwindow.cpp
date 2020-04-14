@@ -58,6 +58,8 @@ void MainWindow::on_visualize_button_clicked()
     figure_t surface = setFigure(dataVariable, ui->step_lineedit->text().toDouble());
     qDebug() << surface.Count();
     DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->setPixmap(*canvas.pix);
 }
+
 
 

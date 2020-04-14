@@ -9,7 +9,6 @@ void setAxis(QLabel *graphArea, canvas_t &canvas)
     canvas.paint->drawLine(10, 10, 10, 551);
     canvas.paint->drawLine(10, 551, 10, 10);
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
-    //graphArea->setPixmap(*canvas.pix);
 }
 
 void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
@@ -24,6 +23,7 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
                 canvas.paint->drawLine(
                             surface.points[i].x, surface.points[i].y,
                             surface.points[j].x, surface.points[j].y);
+
             }
             catch (...)
             {
@@ -31,5 +31,4 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
             }
         }
     }
-    graphArea->setPixmap(*canvas.pix);
 }
