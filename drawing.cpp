@@ -16,13 +16,13 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
     for (int i = 0; i < surface.Count() - 1; i++)
     {
-        for (int j = i + 1; j < surface.Count(); j++)
+        for (int j = 0; j < surface.countEdges(i); j++)
         {
             try
             {
                 canvas.paint->drawLine(
                             10 + surface.points[i].x, 10 + surface.points[i].y,
-                            10 + surface.points[j].x, 10 + surface.points[j].y);
+                            10 + surface.points[surface.edges[i][j]].x, 10 + surface.points[surface.edges[i][j]].y);
             }
             catch (...)
             {

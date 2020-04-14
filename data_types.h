@@ -22,6 +22,10 @@ typedef struct
     {
         return points.size();
     }
+    int countEdges(int i)
+    {
+        return edges[i].size();
+    }
 } figure_t;
 
 typedef struct

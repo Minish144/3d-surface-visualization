@@ -82,6 +82,8 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
                 point.z = i * step;
                 surface.points.push_back(point);
 
+                surface.edges.push_back(getEdges(i, j, zAxisMatrix.size()));
+
                 qDebug() << "point: " << point.x << point.y << point.z;
             } catch (...) {
                 qDebug() << "error point: " << j << QString::fromStdString(zAxisMatrix[i][j]) << i;
@@ -92,7 +94,12 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
 
 vector<int> getEdges(int i, int j, size_t count)
 {
-    int rows, columns = count - 1;
+    int rows = count - 1;
+    int columns = rows;
+    // обработка точек не лежащих на крайних "прямых"
+    if (i != 0 and j != 0 and i != rows and j != columns)
+        return {i*j, (i+1)*j-1, (i+1)*j+1, (i+2)*j};
+
     // обработка краевых точек
     if (i == 0 && j == 0)
         return {1, columns+1};
@@ -103,20 +110,20 @@ vector<int> getEdges(int i, int j, size_t count)
     else if (i == rows and j == columns)
         return {(rows+1)*columns-1, rows+1*columns};
 
-    // обработка точек лежащих на крйних прямых матрицы, но не краевых точках
-    else if ((i == 0 and j != 0) or (i==0 and j != columns))
+    // обработка точек лежащих на крайних "прямых" матрицы, но не краевых точках
+    else if (i == 0 and j != 0 and j != columns)
         return {j-1, j+1, columns+1+j};
-    else if ((i == rows and j != 0) or (i== rows and j != columns))
-        return {rows*columns+1+j, rows*columns+1-j, (rows-1)*columns+1+j};
-    else if ((i == 0 and j != 0) or (i==0 and j != columns))
-        return {0}; // доделать
-    else if ((i == 0 and j != 0) or (i==0 and j != columns))
-        return {0}; // доделать
+    else if (i == rows and j != 0 and j != columns)
+        return {rows*columns+j, rows*columns+j+2, (rows-1)*columns+1+j};
+    else if (j == 0 and i != 0 and i != rows)
+        return {i*columns+2, (i-1)*columns+1, (i+1)*columns+1};
+    else if (j == columns and i != 0 and i != rows)
+        return {i*columns, (i+1)*columns-1, (i+2)*columns};
 }
 
 float findExtremums(figure_t &surface, float &min, float &max)
 {
-    min, max = surface.points[0].y;
+    min = max = surface.points[0].y;
     for (int i = 1; i < surface.Count(); i++)
     {
         if ( surface.points[i].y <= min )

@@ -29,6 +29,8 @@ vector<vector<string>> getStringMatrix(vector<string> array);
 
 figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step);
 
+vector<int> getEdges(int i, int j, size_t count);
+
 float findExtremums(figure_t &surface, float &min, float &max);
 
 void normalize(figure_t &surface, float a, float b);
