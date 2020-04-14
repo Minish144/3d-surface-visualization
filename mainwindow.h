@@ -15,6 +15,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+extern figure_t surface;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

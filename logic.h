@@ -14,6 +14,8 @@
 #include <QDebug>
 #include <vector>
 #include <math.h>
+#include "point_movement.h"
+#include <array>
 
 using namespace std;
 
@@ -30,6 +32,8 @@ vector<vector<string>> getStringMatrix(vector<string> array);
 figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step);
 
 vector<int> getEdges(int i, int j, size_t count);
+
+void setEdges(figure_t &surface, vector<vector<string>> &zAxisMatrix);
 
 float findExtremums(figure_t &surface, float &min, float &max);
 

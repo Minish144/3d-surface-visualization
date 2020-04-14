@@ -19,14 +19,16 @@ SOURCES += \
     drawing.cpp \
     logic.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    point_movement.cpp
 
 HEADERS += \
     data_types.h \
     drawing.h \
     drawingarea.h \
     logic.h \
-    mainwindow.h
+    mainwindow.h \
+    point_movement.h
 
 FORMS += \
     mainwindow.ui

@@ -3,6 +3,7 @@
 #include <QPainter>
 #include "drawing.h"
 
+figure_t surface;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -54,7 +55,10 @@ void MainWindow::on_visualize_button_clicked()
     canvas.setData(981, 561);
     setAxis(ui->graphArea, canvas);
     vector<vector<string>> matrix = dataVariable;
-    figure_t surface = setSurface(dataVariable, ui->step_lineedit->text().toFloat());
+    surface = setSurface(matrix, ui->step_lineedit->text().toFloat());
+    Matrix3D m = xRotate(45);
+    for (int i = 0; i < surface.Count(); i++)
+        surface.points[i] = Multiply(surface.points[i], m);
     normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->setPixmap(*canvas.pix);

@@ -81,9 +81,7 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
                 point.y = stof(zAxisMatrix[i][j]) * step;
                 point.z = i * step;
                 surface.points.push_back(point);
-
                 surface.edges.push_back(getEdges(i, j, zAxisMatrix.size()));
-
                 qDebug() << "point: " << point.x << point.y << point.z;
             } catch (...) {
                 qDebug() << "error point: " << j << QString::fromStdString(zAxisMatrix[i][j]) << i;
@@ -96,6 +94,7 @@ vector<int> getEdges(int i, int j, size_t count)
 {
     int rows = count - 1;
     int columns = rows;
+
     // обработка точек не лежащих на крайних "прямых"
     if (i != 0 and j != 0 and i != rows and j != columns)
         return {i*j, (i+1)*j-1, (i+1)*j+1, (i+2)*j};
@@ -121,6 +120,15 @@ vector<int> getEdges(int i, int j, size_t count)
         return {i*columns, (i+1)*columns-1, (i+2)*columns};
 }
 
+void setEdges(figure_t &surface, vector<vector<string>> &zAxisMatrix)
+{
+    for (size_t i = 0; i < zAxisMatrix.size(); i++)
+        for (size_t j = 0; j < zAxisMatrix.size(); j++)
+        {
+            surface.edges.push_back(getEdges(i, j, zAxisMatrix.size()));
+        }
+}
+
 float findExtremums(figure_t &surface, float &min, float &max)
 {
     min = max = surface.points[0].y;
@@ -143,3 +151,4 @@ void normalize(figure_t &surface, float a, float b)
         surface.points[i].y = a + (surface.points[i].y - min) * (b - a) / (max - min);
     }
 }
+
