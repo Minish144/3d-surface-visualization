@@ -74,9 +74,10 @@ figure_t setFigure(vector<vector<string>>zAxisMatrix, float &step)
     {
         for (size_t j = 0; j++; j < zAxisMatrix.size())
         {
-            point.x = i * step;
+            point.x = j * step;
             point.y = stof(zAxisMatrix[i][j]) * step;
-            point.z = j * step;
+            point.z = i * step;
+
             surface.points.push_back(point);
         }
     }
