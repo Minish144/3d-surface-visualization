@@ -99,19 +99,19 @@ vector<int> getEdges(int i, int j, size_t count)
     else if (i == 0 and j == columns)
         return {columns-1, 2*columns};
     else if (i == rows and j == 0)
-        return {rows*(rows-1), rows*rows+1};
+        return {(rows-1)*columns+1, rows*columns+1+1};
     else if (i == rows and j == columns)
-        return {rows*rows+columns-1, rows*(rows-1)+columns-1};
+        return {(rows+1)*columns-1, rows+1*columns};
 
     // обработка точек лежащих на крйних прямых матрицы, но не краевых точках
     else if ((i == 0 and j != 0) or (i==0 and j != columns))
-        return {j-1, j+1, columns+j};
+        return {j-1, j+1, columns+1+j};
     else if ((i == rows and j != 0) or (i== rows and j != columns))
-        return {rows*rows+1, ..., ...};
+        return {rows*columns+1+j, rows*columns+1-j, (rows-1)*columns+1+j};
     else if ((i == 0 and j != 0) or (i==0 and j != columns))
-
+        return {0}; // доделать
     else if ((i == 0 and j != 0) or (i==0 and j != columns))
-
+        return {0}; // доделать
 }
 
 float findExtremums(figure_t &surface, float &min, float &max)
