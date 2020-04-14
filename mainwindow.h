@@ -6,6 +6,9 @@
 #include <QDialog>
 #include <QDebug>
 #include <QMessageBox>
+#include <iostream>
+#include "data_types.h"
+
 #define ERROR "ERROR"
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +29,8 @@ private slots:
     std::string getFilePath();
 
     void errorMessage();
+
+    void on_visualize_button_clicked();
 
 private:
     Ui::MainWindow *ui;
