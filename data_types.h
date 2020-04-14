@@ -16,6 +16,7 @@ typedef struct
 typedef struct
 {
     vector<point_t> points;
+    vector<vector<int>> edges;
     point_t basePoint;
     int Count()
     {

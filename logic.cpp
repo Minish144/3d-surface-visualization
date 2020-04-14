@@ -81,12 +81,37 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
                 point.y = stof(zAxisMatrix[i][j]) * step;
                 point.z = i * step;
                 surface.points.push_back(point);
+
                 qDebug() << "point: " << point.x << point.y << point.z;
             } catch (...) {
                 qDebug() << "error point: " << j << QString::fromStdString(zAxisMatrix[i][j]) << i;
             }
         }
     return surface;
+}
+
+vector<int> getEdges(int i, int j, size_t count)
+{
+    int rows, columns = count - 1;
+    // обработка краевых точек
+    if (i == 0 && j == 0)
+        return {1, columns+1};
+    else if (i == 0 and j == columns)
+        return {columns-1, 2*columns};
+    else if (i == rows and j == 0)
+        return {rows*(rows-1), rows*rows+1};
+    else if (i == rows and j == columns)
+        return {rows*rows+columns-1, rows*(rows-1)+columns-1};
+
+    // обработка точек лежащих на крйних прямых матрицы, но не краевых точках
+    else if ((i == 0 and j != 0) or (i==0 and j != columns))
+        return {j-1, j+1, columns+j};
+    else if ((i == rows and j != 0) or (i== rows and j != columns))
+        return {rows*rows+1, ..., ...};
+    else if ((i == 0 and j != 0) or (i==0 and j != columns))
+
+    else if ((i == 0 and j != 0) or (i==0 and j != columns))
+
 }
 
 float findExtremums(figure_t &surface, float &min, float &max)
