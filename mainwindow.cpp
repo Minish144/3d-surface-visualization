@@ -53,10 +53,9 @@ void MainWindow::on_visualize_button_clicked()
     canvas_t canvas = {};
     canvas.setData(981, 561);
     setAxis(ui->graphArea, canvas);
-    float step = ui->step_lineedit->text().toDouble();
     vector<vector<string>> matrix = dataVariable;
-    figure_t surface = setFigure(dataVariable, ui->step_lineedit->text().toDouble());
-    qDebug() << surface.Count();
+    figure_t surface = setSurface(dataVariable, ui->step_lineedit->text().toFloat());
+    normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->setPixmap(*canvas.pix);
 }

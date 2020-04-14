@@ -68,7 +68,7 @@ vector<vector<string>> getStringMatrix(vector<string> array)
     return tempMatrix;
 }
 
-figure_t setFigure(vector<vector<string>> &zAxisMatrix, float step)
+figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
 {
     point_t point;
     figure_t surface;

@@ -27,7 +27,7 @@ vector<string> splitString(string str, string sep);
 
 vector<vector<string>> getStringMatrix(vector<string> array);
 
-figure_t setFigure(vector<vector<string>> &zAxisMatrix, float step);
+figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step);
 
 float findExtremums(figure_t &surface, float &min, float &max);
 
