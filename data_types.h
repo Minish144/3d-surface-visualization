@@ -31,7 +31,7 @@ typedef struct
     {
         pix = new QPixmap(width, height);
         paint = new QPainter(pix);
-        //paint->setRenderHint(QPainter::Antialiasing);
+        paint->setRenderHint(QPainter::Antialiasing);
         paint->setRenderHint(QPainter::HighQualityAntialiasing);
     }
 } canvas_t;

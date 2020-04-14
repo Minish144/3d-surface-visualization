@@ -271,6 +271,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="text">
+     <string>10</string>
+    </property>
     <property name="placeholderText">
      <string> Step</string>
     </property>

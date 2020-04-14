@@ -19,13 +19,14 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
     {
         for (int j = i + 1; j < surface.Count(); j++)
         {
-            try {
+            try
+            {
                 canvas.paint->drawLine(
-                            surface.points[i].x,
-                            surface.points[i].y,
-                            surface.points[j].x,
-                            surface.points[j].y);
-            } catch (...) {
+                            surface.points[i].x, surface.points[i].y,
+                            surface.points[j].x, surface.points[j].y);
+            }
+            catch (...)
+            {
                 qDebug() << 'error' << i << j;
             }
         }

@@ -11,6 +11,6 @@ using namespace std;
 
 void setAxis(QLabel *graphArea, canvas_t &canvas);
 
-void DrawFigure(figure_t &surface, canvas_t &canvas);
+void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea);
 
 #endif // DRAWING_H

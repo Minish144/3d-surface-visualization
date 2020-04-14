@@ -1,5 +1,7 @@
 #include "logic.h"
 
+vector<vector<string>> dataVariable;
+
 int checkFile(string filepath)
 {
     ifstream file(filepath);
@@ -25,8 +27,8 @@ vector<string> readCSV(string filepath)
     for (int i = 0; getline(file, tmp); i++)
     {
         qDebug() << tmp[tmp.length()-1];
-        if (tmp[tmp.length()-1] == '\r')
-            tmp = tmp.substr(0, tmp.length()-3);
+//        if (tmp[tmp.length()-1] == '\r')
+//            tmp = tmp.substr(0, tmp.length()-3);
         sArray.push_back(tmp);
         count++;
     }
@@ -62,24 +64,32 @@ vector<vector<string>> getStringMatrix(vector<string> array)
         tempArray = splitString(array[i], ",");
         tempMatrix.push_back(tempArray);
     }
+    dataVariable = tempMatrix;
     return tempMatrix;
 }
 
-figure_t setFigure(vector<vector<string>>zAxisMatrix, float &step)
+figure_t setFigure(vector<vector<string>> &zAxisMatrix, float step)
 {
-    point_t point = {};
-    figure_t surface = {};
-
-    for (size_t i = 0; i++; i < zAxisMatrix.size())
-    {
-        for (size_t j = 0; j++; j < zAxisMatrix.size())
+    point_t point;
+    figure_t surface;
+    qDebug() << "matrix size: " << zAxisMatrix.size() << "step: " << step;
+    for (size_t i = 0; i < zAxisMatrix.size(); i++)
+        for (size_t j = 0; j < zAxisMatrix.size(); j++)
         {
-            point.x = j * step;
-            point.y = stof(zAxisMatrix[i][j]) * step;
-            point.z = i * step;
-
-            surface.points.push_back(point);
+            try {
+                point.x = i * step;
+                point.y = stof(zAxisMatrix[i][j]) * step;
+                point.z = i * step;
+                surface.points.push_back(point);
+                qDebug() << "point: " << point.x << point.y << point.z;
+            } catch (...) {
+                qDebug() << "error point: " << i << QString::fromStdString(zAxisMatrix[i][j]) << j;
+            }
         }
-    }
     return surface;
+}
+
+void normalize(figure_t &surface)
+{
+
 }

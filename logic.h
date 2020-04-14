@@ -17,6 +17,8 @@
 
 using namespace std;
 
+extern vector<vector<string>> dataVariable;
+
 int checkFile(string filepath);
 
 vector<string> readCSV(string filepath);
@@ -25,6 +27,8 @@ vector<string> splitString(string str, string sep);
 
 vector<vector<string>> getStringMatrix(vector<string> array);
 
-figure_t setFigure(vector<vector<string>>zAxisMatrix, float &step);
+figure_t setFigure(vector<vector<string>> &zAxisMatrix, float step);
+
+void normalize(figure_t &surface);
 
 #endif // LOGIC_H
