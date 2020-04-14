@@ -5,7 +5,7 @@
 #include "ui_mainwindow.h"
 #include <QMainWindow>
 #include <QFileDialog>
-
+#include "data_types.h"
 #include <stdio.h>
 #include <QString>
 #include <fstream>
@@ -24,5 +24,7 @@ vector<string> readCSV(string filepath);
 vector<string> splitString(string str, string sep);
 
 vector<vector<string>> getStringMatrix(vector<string> array);
+
+figure_t setFigure(vector<vector<string>>zAxisMatrix, float &step);
 
 #endif // LOGIC_H

@@ -16,6 +16,7 @@ typedef struct
 typedef struct
 {
     vector<point_t> points;
+    point_t basePoint;
     int Count()
     {
         return points.size();
@@ -30,7 +31,7 @@ typedef struct
     {
         pix = new QPixmap(width, height);
         paint = new QPainter(pix);
-        paint->setRenderHint(QPainter::Antialiasing);
+        //paint->setRenderHint(QPainter::Antialiasing);
         paint->setRenderHint(QPainter::HighQualityAntialiasing);
     }
 } canvas_t;

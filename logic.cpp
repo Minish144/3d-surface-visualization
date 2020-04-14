@@ -64,3 +64,21 @@ vector<vector<string>> getStringMatrix(vector<string> array)
     }
     return tempMatrix;
 }
+
+figure_t setFigure(vector<vector<string>>zAxisMatrix, float &step)
+{
+    point_t point = {};
+    figure_t surface = {};
+
+    for (size_t i = 0; i++; i < zAxisMatrix.size())
+    {
+        for (size_t j = 0; j++; j < zAxisMatrix.size())
+        {
+            point.x = i * step;
+            point.y = stof(zAxisMatrix[i][j]) * step;
+            point.z = j * step;
+            surface.points.push_back(point);
+        }
+    }
+    return surface;
+}

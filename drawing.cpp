@@ -7,6 +7,7 @@ void setAxis(QLabel *graphArea, canvas_t &canvas)
     canvas.paint->drawLine(10, 551, 971, 551);
     canvas.paint->setPen(QColor(Qt::GlobalColor::green));
     canvas.paint->drawLine(10, 10, 10, 551);
+    canvas.paint->drawLine(10, 551, 10, 10);
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
     graphArea->setPixmap(*canvas.pix);
 }

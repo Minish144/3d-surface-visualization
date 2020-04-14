@@ -53,6 +53,8 @@ void MainWindow::on_visualize_button_clicked()
     canvas_t canvas = {};
     canvas.setData(981, 561);
     setAxis(ui->graphArea, canvas);
+    float step = ui->step_lineedit->text().toDouble();
+
 }
 
 
