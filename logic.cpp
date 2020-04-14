@@ -89,7 +89,25 @@ figure_t setFigure(vector<vector<string>> &zAxisMatrix, float step)
     return surface;
 }
 
-void normalize(figure_t &surface)
+float findExtremums(figure_t &surface, float &min, float &max)
 {
+    min, max = surface.points[0].y;
+    for (int i = 1; i < surface.Count(); i++)
+    {
+        if ( surface.points[i].y <= min )
+            min = surface.points[i].y;
+        else
+            max = surface.points[i].y;
+    }
+    return min;
+}
 
+void normalize(figure_t &surface, float a, float b)
+{
+    float min, max;
+    findExtremums(surface, min, max);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].y = a + (surface.points[i].y - min) * (b - a) / (max - min);
+    }
 }

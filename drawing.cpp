@@ -21,8 +21,8 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
             try
             {
                 canvas.paint->drawLine(
-                            surface.points[i].x, surface.points[i].y,
-                            surface.points[j].x, surface.points[j].y);
+                            10 + surface.points[i].x, 10 + surface.points[i].y,
+                            10 + surface.points[j].x, 10 + surface.points[j].y);
 
             }
             catch (...)

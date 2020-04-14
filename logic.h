@@ -29,6 +29,8 @@ vector<vector<string>> getStringMatrix(vector<string> array);
 
 figure_t setFigure(vector<vector<string>> &zAxisMatrix, float step);
 
-void normalize(figure_t &surface);
+float findExtremums(figure_t &surface, float &min, float &max);
+
+void normalize(figure_t &surface, float a, float b);
 
 #endif // LOGIC_H
