@@ -11,8 +11,12 @@
 #include "point_movement.h"
 #include <thread>
 #include <chrono>
+#include <stdio.h>
+#include <stdlib.h>
+#include <cctype>
 
 #define ERROR "ERROR"
+#define EMPTY "EMPTY"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

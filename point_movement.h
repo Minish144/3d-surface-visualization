@@ -34,4 +34,10 @@ point_t Multiply(point_t &p, Matrix3D &m);
 
 void Rotate(figure_t &figure, float a, float b, float c);
 
+void Move(figure_t &figure, float a, float b);
+
+void Scale(figure_t &figure, float a);
+
+void UnScale(figure_t &figure, float a);
+
 #endif // POINT_MOVEMENT_H

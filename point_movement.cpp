@@ -74,3 +74,34 @@ void Rotate(figure_t &figure, float a, float b, float c)
             figure.points[i] = Multiply(figure.points[i], mzc);
     }
 }
+
+void Move(figure_t &figure, float a, float b)
+{
+    if (a != 0.0)
+        for (int i = 0; i < figure.Count(); i++)
+            surface.points[i].x += a;
+
+    if (b != 0.0)
+        for (int i = 0; i < figure.Count(); i++)
+            surface.points[i].y += b;
+}
+
+void Scale(figure_t &surface, float a)
+{
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].x *= a;
+        surface.points[i].y *= a;
+        surface.points[i].z *= a;
+    }
+}
+
+void UnScale(figure_t &surface, float a)
+{
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].x /= a;
+        surface.points[i].y /= a;
+        surface.points[i].z /= a;
+    }
+}

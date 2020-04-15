@@ -7,7 +7,6 @@ void setAxis(QLabel *graphArea, canvas_t &canvas)
     canvas.paint->drawLine(10, 551, 971, 551);
     canvas.paint->setPen(QColor(Qt::GlobalColor::green));
     canvas.paint->drawLine(10, 10, 10, 551);
-    canvas.paint->drawLine(10, 551, 10, 10);
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
 }
 
@@ -39,4 +38,12 @@ void clearGraph(canvas_t &canvas, QLabel *graphArea)
 {
     canvas.setData(981, 561);
     setAxis(graphArea, canvas);
+}
+
+void replot(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
+{
+    clearGraph(canvas, graphArea);
+    DrawFigure(surface, canvas, graphArea);
+    graphArea->clear();
+    graphArea->setPixmap(*canvas.pix);
 }

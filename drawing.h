@@ -15,4 +15,6 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea);
 
 void clearGraph(canvas_t &canvas, QLabel *graphArea);
 
+void replot(figure_t &surface, canvas_t &canvas, QLabel *graphArea);
+
 #endif // DRAWING_H
