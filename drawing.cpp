@@ -27,7 +27,7 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
             }
             catch (...)
             {
-                qDebug() << 'error' << i << j;
+                qDebug() << "error" << i << j;
             }
         }
     }

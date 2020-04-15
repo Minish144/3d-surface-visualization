@@ -24,8 +24,7 @@ void MainWindow::on_select_button_clicked()
     if (!filepath.empty())
     {
         ui->filepath_lineedit->setText(QString::fromStdString(filepath));
-        vector<string> vctrstring = readCSV(filepath);
-        getStringMatrix(vctrstring);
+        getStringMatrix(readCSV(filepath));
     }
 }
 
@@ -50,13 +49,13 @@ void MainWindow::errorMessage()
 void MainWindow::on_visualize_button_clicked()
 {
     if (!ui->filepath_lineedit->text().isEmpty() and
-         ui->range1_lineedit->text().toFloat() > 0 and
+         ui->range1_lineedit->text().toFloat() > 0.0 and
          ui->step_lineedit->text().toFloat() != 0.0)
     {
         vector<vector<string>> matrix = dataVariable;
         surface = setSurface(matrix, ui->step_lineedit->text().toFloat());
         normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
-        Rotate(surface, 2.74, ANGULAAR_COEFFICIENT, ZERO);
+        Rotate(surface, 2.74, ANGULAR_COEFFICIENT, ZERO);
         replot(surface, canvas, ui->graphArea);
     }
     else
@@ -101,36 +100,36 @@ void MainWindow::on_move_down_clicked()
 
 void MainWindow::on_rotate_xAxis_right_clicked()
 {
-    Rotate(surface, -ANGULAAR_COEFFICIENT, ZERO, ZERO);
+    Rotate(surface, -ANGULAR_COEFFICIENT, ZERO, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_xAxis_left_clicked()
 {
-    Rotate(surface, ANGULAAR_COEFFICIENT, ZERO, ZERO);
+    Rotate(surface, ANGULAR_COEFFICIENT, ZERO, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_yAxis_right_clicked()
 {
-    Rotate(surface, ZERO, ANGULAAR_COEFFICIENT, ZERO);
+    Rotate(surface, ZERO, ANGULAR_COEFFICIENT, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_yAxis_left_clicked()
 {
-    Rotate(surface, ZERO, -ANGULAAR_COEFFICIENT, ZERO);
+    Rotate(surface, ZERO, -ANGULAR_COEFFICIENT, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_zAxis_right_clicked()
 {
-    Rotate(surface, ZERO, ZERO, -ANGULAAR_COEFFICIENT);
+    Rotate(surface, ZERO, ZERO, -ANGULAR_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_zAxis_left_clicked()
 {
-    Rotate(surface, ZERO, ZERO, ANGULAAR_COEFFICIENT);
+    Rotate(surface, ZERO, ZERO, ANGULAR_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }

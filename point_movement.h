@@ -9,7 +9,7 @@
 
 #define SCALE_COEFFICIENT 1.05
 #define MOVE_COEFFICIENT 30.0
-#define ANGULAAR_COEFFICIENT 0.2
+#define ANGULAR_COEFFICIENT 0.2
 #define ZERO 0.0
 
 #define SIN_10 sinf(10 * 3.14 / 180)
