@@ -2,7 +2,7 @@
 
 void setAxis(QLabel *graphArea, canvas_t &canvas)
 {
-    canvas.paint->fillRect(0, 0, 981, 561, QBrush(QColor(Qt::GlobalColor::transparent)));
+    canvas.paint->fillRect(0, 0, 981, 561, QBrush(QColor::fromRgb(238, 238, 238)));
     canvas.paint->setPen(QColor(Qt::GlobalColor::blue));
     canvas.paint->drawLine(10, 551, 971, 551);
     canvas.paint->setPen(QColor(Qt::GlobalColor::green));
@@ -15,7 +15,6 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
     surface.basePoint.x = 200;
     surface.basePoint.y = 420;
-    int count = 0;
     for (int i = 0; i < surface.Count(); i++)
     {
         for (int j = 0; j < surface.countEdges(i); j++)
