@@ -66,6 +66,8 @@ private slots:
 
     void on_rotate_zAxis_left_clicked();
 
+    void on_set_recommended_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

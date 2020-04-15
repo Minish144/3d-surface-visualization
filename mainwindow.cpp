@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->recommendations->setAutoFillBackground(false);
 }
 
 MainWindow::~MainWindow()
@@ -132,4 +133,11 @@ void MainWindow::on_rotate_zAxis_left_clicked()
 {
     Rotate(surface, ZERO, ZERO, ANGULAR_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
+}
+
+void MainWindow::on_set_recommended_clicked()
+{
+    ui->step_lineedit->setText("20");
+    ui->range0_lineedit->setText("0");
+    ui->range1_lineedit->setText("40");
 }

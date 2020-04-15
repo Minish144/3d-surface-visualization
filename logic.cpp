@@ -73,6 +73,8 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
     point_t point;
     figure_t surface;
     qDebug() << "matrix size: " << zAxisMatrix.size() << "step: " << step;
+    surface.basePoint.x = 200;
+    surface.basePoint.y = 420;
     for (size_t i = 0; i < zAxisMatrix.size(); i++)
         for (size_t j = 0; j < zAxisMatrix.size(); j++)
         {
