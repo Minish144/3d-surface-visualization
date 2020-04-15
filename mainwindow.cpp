@@ -65,9 +65,9 @@ void MainWindow::on_scale_up_clicked()
     clearGraph(canvas, ui->graphArea);
     for (int i = 0; i < surface.Count(); i++)
     {
-        surface.points[i].x *= 1.05;
-        surface.points[i].y *= 1.05;
-        surface.points[i].z *= 1.05;
+        surface.points[i].x *= SCALE_CONST;
+        surface.points[i].y *= SCALE_CONST;
+        surface.points[i].z *= SCALE_CONST;
     }
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
@@ -79,9 +79,9 @@ void MainWindow::on_scale_down_clicked()
     clearGraph(canvas, ui->graphArea);
     for (int i = 0; i < surface.Count(); i++)
     {
-        surface.points[i].x /= 1.05;
-        surface.points[i].y /= 1.05;
-        surface.points[i].z /= 1.05;
+        surface.points[i].x /= SCALE_CONST;
+        surface.points[i].y /= SCALE_CONST;
+        surface.points[i].z /= SCALE_CONST;
     }
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
@@ -139,7 +139,6 @@ void MainWindow::on_move_down_clicked()
 void MainWindow::on_rotate_xAxis_right_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    qDebug() << surface.Count();
     for (int i = 0; i < surface.Count(); i++)
     {
         surface.points[i].y = surface.points[i].y * COS_10 - surface.points[i].z * SIN_10;
@@ -153,7 +152,6 @@ void MainWindow::on_rotate_xAxis_right_clicked()
 void MainWindow::on_rotate_xAxis_left_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    qDebug() << surface.Count();
     for (int i = 0; i < surface.Count(); i++)
     {
         surface.points[i].y = surface.points[i].y * COS_NEG10 - surface.points[i].z * SIN_NEG10;
@@ -167,11 +165,10 @@ void MainWindow::on_rotate_xAxis_left_clicked()
 void MainWindow::on_rotate_yAxis_right_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    qDebug() << surface.Count();
     for (int i = 0; i < surface.Count(); i++)
     {
-        surface.points[i].x = surface.points[i].x * COS_10 + surface.points[i].z * SIN_10;
-        surface.points[i].z = surface.points[i].z * COS_10 - surface.points[i].x * SIN_10;
+        surface.points[i].x = surface.points[i].x * COS_NEG10 + surface.points[i].z * SIN_NEG10;
+        surface.points[i].z = surface.points[i].z * COS_NEG10 - surface.points[i].x * SIN_NEG10;
     }
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
@@ -184,8 +181,8 @@ void MainWindow::on_rotate_yAxis_left_clicked()
     qDebug() << surface.Count();
     for (int i = 0; i < surface.Count(); i++)
     {
-        surface.points[i].x = surface.points[i].x * COS_NEG10 + surface.points[i].z * SIN_NEG10;
-        surface.points[i].z = surface.points[i].z * COS_NEG10 - surface.points[i].x * SIN_NEG10;
+        surface.points[i].x = surface.points[i].x * COS_10 + surface.points[i].z * SIN_10;
+        surface.points[i].z = surface.points[i].z * COS_10 - surface.points[i].x * SIN_10;
     }
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();

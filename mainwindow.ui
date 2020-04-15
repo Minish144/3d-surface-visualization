@@ -89,11 +89,11 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>23</pointsize>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>⤿</string>
+     <string>⤴</string>
     </property>
    </widget>
    <widget class="QPushButton" name="rotate_xAxis_left">
@@ -107,11 +107,11 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>23</pointsize>
+      <pointsize>14</pointsize>
      </font>
     </property>
     <property name="text">
-     <string>⤾</string>
+     <string>⤵</string>
     </property>
    </widget>
    <widget class="QPushButton" name="rotate_yAxis_right">
@@ -357,6 +357,45 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>640</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>x</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>640</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>y</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>640</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>z</string>
     </property>
    </widget>
   </widget>
