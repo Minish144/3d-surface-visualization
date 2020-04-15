@@ -49,13 +49,14 @@ void MainWindow::errorMessage()
 
 void MainWindow::on_visualize_button_clicked()
 {
-    if ((!ui->filepath_lineedit->text().isEmpty() and ui->range1_lineedit->text().toFloat() > 0) or
-            (ui->step_lineedit->text().toFloat() != 0.0))
+    if (!ui->filepath_lineedit->text().isEmpty() and
+         ui->range1_lineedit->text().toFloat() > 0 and
+         ui->step_lineedit->text().toFloat() != 0.0)
     {
         vector<vector<string>> matrix = dataVariable;
         surface = setSurface(matrix, ui->step_lineedit->text().toFloat());
         normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
-        Rotate(surface, 3.14-0.4, 0.2, 0.0);
+        Rotate(surface, 2.74, ANGULAAR_COEFFICIENT, ZERO);
         replot(surface, canvas, ui->graphArea);
     }
     else
@@ -64,72 +65,72 @@ void MainWindow::on_visualize_button_clicked()
 
 void MainWindow::on_scale_up_clicked()
 {
-    Scale(surface, 1.05);
+    Scale(surface, SCALE_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_scale_down_clicked()
 {
-    UnScale(surface, 1.05);
+    UnScale(surface, SCALE_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_move_left_clicked()
 {
-    Move(surface, -30.0, 0);
+    Move(surface, -MOVE_COEFFICIENT, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_move_right_clicked()
 {
-    Move(surface, 30.0, 0);
+    Move(surface, MOVE_COEFFICIENT, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_move_up_clicked()
 {
-    Move(surface, 0.0, -30.0);
+    Move(surface, ZERO, -MOVE_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_move_down_clicked()
 {
-    Move(surface, 0.0, 30.0);
+    Move(surface, ZERO, MOVE_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_xAxis_right_clicked()
 {
-    Rotate(surface, -0.2, 0.0, 0.0);
+    Rotate(surface, -ANGULAAR_COEFFICIENT, ZERO, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_xAxis_left_clicked()
 {
-    Rotate(surface, 0.2, 0.0, 0.0);
+    Rotate(surface, ANGULAAR_COEFFICIENT, ZERO, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_yAxis_right_clicked()
 {
-    Rotate(surface, 0.0, 0.3, 0.0);
+    Rotate(surface, ZERO, ANGULAAR_COEFFICIENT, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_yAxis_left_clicked()
 {
-    Rotate(surface, 0.0, -0.3, 0.0);
+    Rotate(surface, ZERO, -ANGULAAR_COEFFICIENT, ZERO);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_zAxis_right_clicked()
 {
-    Rotate(surface, 0.0, 0.0, -0.2);
+    Rotate(surface, ZERO, ZERO, -ANGULAAR_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }
 
 void MainWindow::on_rotate_zAxis_left_clicked()
 {
-    Rotate(surface, 0.0, 0.0, 0.2);
+    Rotate(surface, ZERO, ZERO, ANGULAAR_COEFFICIENT);
     replot(surface, canvas, ui->graphArea);
 }

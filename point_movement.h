@@ -7,7 +7,10 @@
 #include "logic.h"
 #include "math.h"
 
-#define SCALE_CONST 1.05
+#define SCALE_COEFFICIENT 1.05
+#define MOVE_COEFFICIENT 30.0
+#define ANGULAAR_COEFFICIENT 0.2
+#define ZERO 0.0
 
 #define SIN_10 sinf(10 * 3.14 / 180)
 #define COS_10 cosf(10 * 3.14 / 180)
