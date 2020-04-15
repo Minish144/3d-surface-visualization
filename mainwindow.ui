@@ -114,7 +114,7 @@
      <string>⤾</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="rotate_yAxis_right">
     <property name="geometry">
      <rect>
       <x>250</x>
@@ -132,7 +132,7 @@
      <string>⟲</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="rotate_yAxis_left">
     <property name="geometry">
      <rect>
       <x>250</x>

@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <iostream>
 #include "data_types.h"
+#include "point_movement.h"
 
 #define ERROR "ERROR"
 
@@ -35,8 +36,6 @@ private slots:
 
     void on_visualize_button_clicked();
 
-    void on_rotate_xAxis_right_clicked();
-
     void on_scale_up_clicked();
 
     void on_scale_down_clicked();
@@ -48,6 +47,14 @@ private slots:
     void on_move_up_clicked();
 
     void on_move_down_clicked();
+
+    void on_rotate_xAxis_right_clicked();
+
+    void on_rotate_xAxis_left_clicked();
+
+    void on_rotate_yAxis_right_clicked();
+
+    void on_rotate_yAxis_left_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -7,6 +7,11 @@
 #include "logic.h"
 #define MATRIX_SIZE 4
 
+#define SIN_10 0.1736481777
+#define COS_10 0.9848077530
+#define SIN_NEG10 -0.1736481777
+#define COS_NEG10 0.9848077530
+
 using namespace std;
 
 struct Matrix3D
