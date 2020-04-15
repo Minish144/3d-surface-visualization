@@ -141,3 +141,11 @@ void MainWindow::on_set_recommended_clicked()
     ui->range0_lineedit->setText("0");
     ui->range1_lineedit->setText("40");
 }
+
+void MainWindow::on_reset_button_clicked()
+{
+    surface = setSurface(dataVariable, ui->step_lineedit->text().toFloat());
+    normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
+    Rotate(surface, 2.74, ANGULAR_COEFFICIENT, ZERO);
+    replot(surface, canvas, ui->graphArea);
+}

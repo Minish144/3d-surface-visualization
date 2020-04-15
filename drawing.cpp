@@ -4,11 +4,17 @@ void setAxis(QLabel *graphArea, canvas_t &canvas)
 {
     canvas.paint->fillRect(0, 0, 981, 561, QBrush(QColor::fromRgb(238, 238, 238)));
     canvas.paint->setPen(QColor(Qt::GlobalColor::green));
+
     canvas.paint->drawLine(200, 420, 200, 220);
+    canvas.paint->drawLine(200, 420, 200, 220);
+
     canvas.paint->setPen(QColor(Qt::GlobalColor::blue));
     canvas.paint->drawLine(200, 420, 400, 420);
+    canvas.paint->drawLine(200, 420, 400, 420);
+
     canvas.paint->setPen(QColor(Qt::GlobalColor::red));
-    canvas.paint->drawLine(200, 420, 100, 500);
+    canvas.paint->drawLine(200, 420, 100, 520);
+    canvas.paint->drawLine(200, 420, 100, 520);
 }
 
 void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
