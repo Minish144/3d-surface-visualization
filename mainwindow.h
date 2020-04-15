@@ -9,6 +9,8 @@
 #include <iostream>
 #include "data_types.h"
 #include "point_movement.h"
+#include <thread>
+#include <chrono>
 
 #define ERROR "ERROR"
 
@@ -55,6 +57,10 @@ private slots:
     void on_rotate_yAxis_right_clicked();
 
     void on_rotate_yAxis_left_clicked();
+
+    void on_rotate_zAxis_right_clicked();
+
+    void on_rotate_zAxis_left_clicked();
 
 private:
     Ui::MainWindow *ui;

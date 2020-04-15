@@ -56,6 +56,7 @@ void MainWindow::on_visualize_button_clicked()
     vector<vector<string>> matrix = dataVariable;
     surface = setSurface(matrix, ui->step_lineedit->text().toFloat());
     normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
+    Rotate(surface, 3.14-0.4, 0.2, 0.0);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->setPixmap(*canvas.pix);
 }
@@ -139,11 +140,7 @@ void MainWindow::on_move_down_clicked()
 void MainWindow::on_rotate_xAxis_right_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    for (int i = 0; i < surface.Count(); i++)
-    {
-        surface.points[i].y = surface.points[i].y * COS_10 - surface.points[i].z * SIN_10;
-        surface.points[i].z = surface.points[i].y * SIN_10 + surface.points[i].z * COS_10;
-    }
+    Rotate(surface, 0.2, 0.0, 0.0);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
@@ -152,11 +149,7 @@ void MainWindow::on_rotate_xAxis_right_clicked()
 void MainWindow::on_rotate_xAxis_left_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    for (int i = 0; i < surface.Count(); i++)
-    {
-        surface.points[i].y = surface.points[i].y * COS_NEG10 - surface.points[i].z * SIN_NEG10;
-        surface.points[i].z = surface.points[i].y * SIN_NEG10 + surface.points[i].z * COS_NEG10;
-    }
+    Rotate(surface, -0.2, 0.0, 0.0);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
@@ -165,11 +158,7 @@ void MainWindow::on_rotate_xAxis_left_clicked()
 void MainWindow::on_rotate_yAxis_right_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    for (int i = 0; i < surface.Count(); i++)
-    {
-        surface.points[i].x = surface.points[i].x * COS_NEG10 + surface.points[i].z * SIN_NEG10;
-        surface.points[i].z = surface.points[i].z * COS_NEG10 - surface.points[i].x * SIN_NEG10;
-    }
+    Rotate(surface, 0.0, 0.3, 0.0);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
@@ -178,12 +167,25 @@ void MainWindow::on_rotate_yAxis_right_clicked()
 void MainWindow::on_rotate_yAxis_left_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    qDebug() << surface.Count();
-    for (int i = 0; i < surface.Count(); i++)
-    {
-        surface.points[i].x = surface.points[i].x * COS_10 + surface.points[i].z * SIN_10;
-        surface.points[i].z = surface.points[i].z * COS_10 - surface.points[i].x * SIN_10;
-    }
+    Rotate(surface, 0.0, -0.3, 0.0);
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
+
+void MainWindow::on_rotate_zAxis_right_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    Rotate(surface, 0.0, 0.0, 0.2);
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
+
+void MainWindow::on_rotate_zAxis_left_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    Rotate(surface, 0.0, 0.0, -0.2);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);

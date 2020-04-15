@@ -150,7 +150,7 @@
      <string>⟳</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="rotate_zAxis_right">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -168,7 +168,7 @@
      <string>⤺</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_10">
+   <widget class="QPushButton" name="rotate_zAxis_left">
     <property name="geometry">
      <rect>
       <x>300</x>
@@ -212,7 +212,7 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="move_reset">
+   <widget class="QPushButton" name="cool_button">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -272,7 +272,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>10</string>
+     <string>20</string>
     </property>
     <property name="placeholderText">
      <string> Step</string>

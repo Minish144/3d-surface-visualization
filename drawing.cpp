@@ -14,6 +14,8 @@ void setAxis(QLabel *graphArea, canvas_t &canvas)
 void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
 {
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
+    surface.basePoint.x = 200;
+    surface.basePoint.y = 420;
     int count = 0;
     for (int i = 0; i < surface.Count(); i++)
     {
@@ -22,8 +24,8 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
             try
             {
                 canvas.paint->drawLine(
-                            15 + surface.points[i].x, 15 + surface.points[i].y,
-                            15 + surface.points[surface.edges[i][j]].x, 15 + surface.points[surface.edges[i][j]].y);
+                            surface.basePoint.x + surface.points[i].x, surface.basePoint.y + surface.points[i].y,
+                            surface.basePoint.x + surface.points[surface.edges[i][j]].x, surface.basePoint.y + surface.points[surface.edges[i][j]].y);
             }
             catch (...)
             {
