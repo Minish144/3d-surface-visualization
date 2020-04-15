@@ -4,6 +4,7 @@
 #include "drawing.h"
 
 figure_t surface;
+canvas_t canvas;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -51,18 +52,99 @@ void MainWindow::errorMessage()
 
 void MainWindow::on_visualize_button_clicked()
 {
-    canvas_t canvas = {};
-    canvas.setData(981, 561);
-    setAxis(ui->graphArea, canvas);
+    clearGraph(canvas, ui->graphArea);
     vector<vector<string>> matrix = dataVariable;
     surface = setSurface(matrix, ui->step_lineedit->text().toFloat());
-    Matrix3D m = xRotate(45);
-    for (int i = 0; i < surface.Count(); i++)
-        surface.points[i] = Multiply(surface.points[i], m);
     normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->setPixmap(*canvas.pix);
 }
 
+void MainWindow::on_rotate_xAxis_right_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    Matrix3D mat = xRotate(-15);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        Multiply(surface.points[i], mat);
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
 
+void MainWindow::on_scale_up_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].x *= 1.05;
+        surface.points[i].y *= 1.05;
+        surface.points[i].z *= 1.05;
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
 
+void MainWindow::on_scale_down_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].x /= 1.05;
+        surface.points[i].y /= 1.05;
+        surface.points[i].z /= 1.05;
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
+
+void MainWindow::on_move_left_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].x -= 20;
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
+
+void MainWindow::on_move_right_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].x += 20;
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
+
+void MainWindow::on_move_up_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].y -= 20;
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}
+
+void MainWindow::on_move_down_clicked()
+{
+    clearGraph(canvas, ui->graphArea);
+    for (int i = 0; i < surface.Count(); i++)
+    {
+        surface.points[i].y += 20;
+    }
+    DrawFigure(surface, canvas, ui->graphArea);
+    ui->graphArea->clear();
+    ui->graphArea->setPixmap(*canvas.pix);
+}

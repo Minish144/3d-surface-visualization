@@ -26,7 +26,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="move_xAxis_minus">
+   <widget class="QPushButton" name="move_left">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -39,7 +39,7 @@
      <string>←</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="move_yAxis_plus">
+   <widget class="QPushButton" name="move_up">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -52,7 +52,7 @@
      <string>↑</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="move_xAxis_plus">
+   <widget class="QPushButton" name="move_right">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -65,7 +65,7 @@
      <string>→</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="move_yAxis_minus">
+   <widget class="QPushButton" name="move_down">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -78,7 +78,7 @@
      <string>↓</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="rotate_xAxis_right">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -96,7 +96,7 @@
      <string>⤿</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="rotate_xAxis_left">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -186,30 +186,30 @@
      <string>⤻</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="move_zAxis_down_2">
+   <widget class="QPushButton" name="scale_up">
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>640</y>
+      <y>650</y>
       <width>41</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>⇡</string>
+     <string>+</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="move_zAxis_down">
+   <widget class="QPushButton" name="scale_down">
     <property name="geometry">
      <rect>
       <x>150</x>
       <y>680</y>
       <width>41</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>⇣</string>
+     <string>-</string>
     </property>
    </widget>
    <widget class="QPushButton" name="move_reset">

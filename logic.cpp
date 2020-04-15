@@ -82,7 +82,7 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
                 point.z = i * step;
                 surface.points.push_back(point);
                 surface.edges.push_back(getEdges(i, j, zAxisMatrix.size()));
-                qDebug() << "point: " << point.x << point.y << point.z;
+                qDebug() << "point: " << point.x << point.y << point.z << surface.edges[i];
             } catch (...) {
                 qDebug() << "error point: " << j << QString::fromStdString(zAxisMatrix[i][j]) << i;
             }

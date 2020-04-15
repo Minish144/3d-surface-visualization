@@ -31,3 +31,9 @@ void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
         }
     }
 }
+
+void clearGraph(canvas_t &canvas, QLabel *graphArea)
+{
+    canvas.setData(981, 561);
+    setAxis(graphArea, canvas);
+}

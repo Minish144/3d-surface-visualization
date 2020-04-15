@@ -16,6 +16,7 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 extern figure_t surface;
+extern canvas_t canvas;
 
 class MainWindow : public QMainWindow
 {
@@ -33,6 +34,20 @@ private slots:
     void errorMessage();
 
     void on_visualize_button_clicked();
+
+    void on_rotate_xAxis_right_clicked();
+
+    void on_scale_up_clicked();
+
+    void on_scale_down_clicked();
+
+    void on_move_left_clicked();
+
+    void on_move_right_clicked();
+
+    void on_move_up_clicked();
+
+    void on_move_down_clicked();
 
 private:
     Ui::MainWindow *ui;
