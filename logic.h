@@ -31,7 +31,7 @@ vector<vector<string>> getStringMatrix(vector<string> array);
 
 figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step);
 
-vector<int> getEdges(int i, int j, size_t count);
+vector<int> getEdges(int i, int j, int count);
 
 void setEdges(figure_t &surface, vector<vector<string>> &zAxisMatrix);
 

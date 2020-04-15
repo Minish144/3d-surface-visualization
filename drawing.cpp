@@ -14,7 +14,8 @@ void setAxis(QLabel *graphArea, canvas_t &canvas)
 void DrawFigure(figure_t &surface, canvas_t &canvas, QLabel *graphArea)
 {
     canvas.paint->setPen(QColor(Qt::GlobalColor::black));
-    for (int i = 0; i < surface.Count() - 1; i++)
+    int count = 0;
+    for (int i = 0; i < surface.Count(); i++)
     {
         for (int j = 0; j < surface.countEdges(i); j++)
         {
