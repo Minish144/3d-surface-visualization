@@ -78,8 +78,8 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
         {
             try {
                 point.x = j * step;
-                point.y = i * step; //stof(zAxisMatrix[i][j]) * step;
-                point.z = 0; //i * step;
+                point.y = stof(zAxisMatrix[i][j]) * step;
+                point.z = i * step;
                 surface.points.push_back(point);
                 surface.edges.push_back(getEdges(i, j, zAxisMatrix.size()));
 //                qDebug() << "point: " << "x, j:" << point.x << "y, i :" << point.y;
@@ -93,7 +93,8 @@ figure_t setSurface(vector<vector<string>> &zAxisMatrix, float step)
 
 vector<int> getEdges(int i, int j, int count)
 {
-    // обработка угловых точек
+    // обработка угловых точек,
+    // у которых две смежные точки
     if (i == 0 and j == 0)
         return {1, count};
     else if (i == 0 and j == count-1)
@@ -103,7 +104,8 @@ vector<int> getEdges(int i, int j, int count)
     else if (i == count-1 and j == count-1)
         return {(i+1)*count-2, i*count-1};
 
-    // обработка крайних матричных точек
+    // обработка крайних матричных точек,
+    // к которых три смежные точки
     else if (i == 0 and j != 0)
         return {j-1, j+1, count+j};
     else if (i == count-1 and j != 0)
@@ -113,7 +115,10 @@ vector<int> getEdges(int i, int j, int count)
     else if (j == count-1 and i != 0)
         return {i*count-1, i*count+j-1, (i+1)*count+j};
 
-    else return {};
+    // все остальные случаи, т.е
+    // когда у каждой точки всего
+    // есть 4 смежные точки
+    else return {i*count+j-1, i*count+j+1, (i-1)*count+j, (i+1)*count+j};
 }
 
 void setEdges(figure_t &surface, vector<vector<string>> &zAxisMatrix)

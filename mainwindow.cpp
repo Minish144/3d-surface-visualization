@@ -55,7 +55,7 @@ void MainWindow::on_visualize_button_clicked()
     clearGraph(canvas, ui->graphArea);
     vector<vector<string>> matrix = dataVariable;
     surface = setSurface(matrix, ui->step_lineedit->text().toFloat());
-    //normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
+    normalize(surface, ui->range0_lineedit->text().toFloat(), ui->range1_lineedit->text().toFloat());
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->setPixmap(*canvas.pix);
 }
