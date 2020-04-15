@@ -140,7 +140,7 @@ void MainWindow::on_move_down_clicked()
 void MainWindow::on_rotate_xAxis_right_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    Rotate(surface, 0.2, 0.0, 0.0);
+    Rotate(surface, -0.2, 0.0, 0.0);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
@@ -149,7 +149,7 @@ void MainWindow::on_rotate_xAxis_right_clicked()
 void MainWindow::on_rotate_xAxis_left_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    Rotate(surface, -0.2, 0.0, 0.0);
+    Rotate(surface, 0.2, 0.0, 0.0);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
@@ -176,7 +176,7 @@ void MainWindow::on_rotate_yAxis_left_clicked()
 void MainWindow::on_rotate_zAxis_right_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    Rotate(surface, 0.0, 0.0, 0.2);
+    Rotate(surface, 0.0, 0.0, -0.2);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
@@ -185,7 +185,7 @@ void MainWindow::on_rotate_zAxis_right_clicked()
 void MainWindow::on_rotate_zAxis_left_clicked()
 {
     clearGraph(canvas, ui->graphArea);
-    Rotate(surface, 0.0, 0.0, -0.2);
+    Rotate(surface, 0.0, 0.0, 0.2);
     DrawFigure(surface, canvas, ui->graphArea);
     ui->graphArea->clear();
     ui->graphArea->setPixmap(*canvas.pix);
