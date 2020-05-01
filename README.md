@@ -1,2 +1,1 @@
-# bmstu/3d-surface-visualization
- 
+Surface visualization of a given *.csv
